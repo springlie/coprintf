@@ -1,12 +1,12 @@
 # coprintf #
 
-Colorful printf for C Code ( ascii color only )
+Colorful `printf` for C Code ( ascii color only )
 
 ----------
 
 ## Overview ##
 
-A **light** wrapper of `printf`, with color flags of **foreground**, **background** and **action** ( highlight, underline, blink ... ) . With it, you can easily colorize your output of command and shell script.
+A **light** wrapper of `printf`, with color flags of **foreground**, **background** and **action** ( highlight, underline, blink ... ) . With it, you can easily colorize your output of C/CPP Code.
 
 ## Screenshot ##
 
@@ -14,7 +14,9 @@ A **light** wrapper of `printf`, with color flags of **foreground**, **backgroun
 
 ## Install ##
 
-Before use `coprintf`, simply include the header in your files like this: `#include "coprintf.h"`
+Before use `coprintf`, simply include the header in your files like this:
+
+`#include "coprintf.h"`
 
 ## Usage ##
 
@@ -40,9 +42,9 @@ Support switch the printf status:
 
 #### Leader Character ####
 
-We define a character as the <leader> character, who will combine the mode character as escape character.
+We have to define a character as the <leader> character, who will indicate the mode character according to the char after it as escape character.
 
-The default option is **"^"**, you can customize it to any char you want, before calling coprintf.
+The default option is '**^**', you can customize it to any char you want, before calling `coprintf`.
 
 The mode control formats are easily memorized:
 
@@ -80,7 +82,7 @@ The mode control formats are easily memorized:
 
 #### Action flag ####
 
-| mode		| action    |
+| mode      | action    |
 | --------- | --------- |
 | <leader>d | done      |
 | <leader>h | highlight |
@@ -107,15 +109,15 @@ or
 
 	coprintf("^r^Y^h^u%shello^d ^c^R^eworld^d ^g^K^l!");
 
-**More examples in demo.c**
+**More examples in [demo.c](https://github.com/springlie/coprintf/blob/master/demo.c)**
 
 ## Advanced ##
 
 - Action flag `<leader>d` will **turn off all settings** ( fg, bg and action ), Thus, in **single** command, you have to set flags again to make it work well once there are other strings after `<leader>d`.
-- If you want to print the leader itself, try `<leader><leader>`; If the char after leader isn't defined as an escape char, it will be ignored.
-- It's **not** necessary use `<leader>d` at the begin/end of commands, `coprintf` do it automatically.
+- If you want to print the <leader> character itself, try `<leader><leader>`; If the char after leader isn't defined as an escape char, it will be ignored.
+- It's **not** necessary to use `<leader>d` at the begin/end of commands, `coprintf` do it automatically.
 - Actions can overlaied.
 
 ## What's more ##
 
-This project is really same as [cecho](https://github.com/springlie/cecho), which supports similar functions to `echo` in shell script. Yes, `coprintf` is just the C version of `cecho`!
+`coprintf` is really same as [cecho](https://github.com/springlie/cecho), which supports similar functions to `echo` in shell script. Yes, `coprintf` is just the **C version** of `cecho`!
