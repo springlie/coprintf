@@ -6,15 +6,23 @@ Colorful printf for C Code ( ascii color only )
 
 ## Overview ##
 
-A **light** wrapper of `printf`, with color flags of **foreground**, **background** and **action** ( highlight, underline, blink ... ) . With it, you can easily colorize your output of command and shell script.
+A **light** wrapper of `printf`, with color flags of **foreground**, **background** and **action** ( highlight, underline, blink ... ) . With it, you can easily colorize your output of C / CPP.
 
 ## Screenshot ##
 
+##### Active #####
+
 ![screenshot](https://raw.github.com/springlie/coprintf/master/screenshot.png)
+
+##### Inactive #####
+
+![screenshot](https://raw.github.com/springlie/coprintf/master/screenshot2.png)
 
 ## Install ##
 
-Before use `coprintf`, simply include the header in your files like this: `#include "coprintf.h"`
+Before using `coprintf`, simply include the header in your files like this:
+
+`#include "coprintf.h"`
 
 ## Usage ##
 
@@ -34,9 +42,9 @@ Support setting foreground, background and action
 
 Support switch the printf status:
 
-	#define CO_PRINTF_ACTIVE	1		--->		colorful output
+	#define CO_PRINTF_INACTIVE		--->	normal output
 
-	#define CO_PRINTF_ACTIVE	0		--->		normal output
+	/*#define CO_PRINTF_INACTIVE*/	--->	colorful output
 
 #### Leader Character ####
 
@@ -109,10 +117,32 @@ or
 
 **More examples in demo.c**
 
+## Macro ##
+
+**You can customize the below Macros in `coprintf.h` file:
+
+##### CO_PRINTF_INACTIVE #####
+
+Default: not set.
+
+`coprintf` will be disabled if `CO_PRINTF_INACTIVE` is set like this:
+
+	/* disable colorful ouptput */
+	#define CO_PRINTF_INACTIVE	
+
+##### CO_PRINTF_LEADER #####
+
+Default: '^'
+
+The `<leader>` char can be customized by `CO_PRINTF_LEADER`:
+
+	/* set '#' as the <leader> char*/
+	#define CO_PRINTF_LEADER	'#'
+
 ## Advanced ##
 
 - Action flag `<leader>d` will **turn off all settings** ( fg, bg and action ), Thus, in **single** command, you have to set flags again to make it work well once there are other strings after `<leader>d`.
-- If you want to print the leader itself, try `<leader><leader>`; If the char after leader isn't defined as an escape char, it will be ignored.
+- If you want to print the <leader> itself, try `<leader><leader>`; If the char after leader isn't defined as an escape char, it will be ignored.
 - It's **not** necessary use `<leader>d` at the begin/end of commands, `coprintf` do it automatically.
 - Actions can overlaied.
 

@@ -1,3 +1,4 @@
+//#define CO_PRINTF_INACTIVE
 #include "coprintf.h"
 
 int main(int argc, char** argv)

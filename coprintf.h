@@ -8,15 +8,23 @@ Colorful printf for C Code ( ascii color only )
 
 ## Overview ##
 
-A **light** wrapper of `printf`, with color flags of **foreground**, **background** and **action** ( highlight, underline, blink ... ) . With it, you can easily colorize your output of command and shell script.
+A **light** wrapper of `printf`, with color flags of **foreground**, **background** and **action** ( highlight, underline, blink ... ) . With it, you can easily colorize your output of C / CPP.
 
 ## Screenshot ##
 
+##### Active #####
+
 ![screenshot](https://raw.github.com/springlie/coprintf/master/screenshot.png)
+
+##### Inactive #####
+
+![screenshot](https://raw.github.com/springlie/coprintf/master/screenshot2.png)
 
 ## Install ##
 
-Before use `coprintf`, simply include the header in your files like this: `#include "coprintf.h"`
+Before using `coprintf`, simply include the header in your files like this:
+
+`#include "coprintf.h"`
 
 ## Usage ##
 
@@ -34,11 +42,11 @@ Support setting foreground, background and action
 
 	coprintf("<leader>r<leader>YHello <leader>b<leader>CWorld");
 
-Support switch the printf stutas:
+Support switch the printf status:
 
-	#define CO_PRINTF_ACTIVE	1		--->		colorful output
+	#define CO_PRINTF_INACTIVE		--->	normal output
 
-	#define CO_PRINTF_ACTIVE	0		--->		normal output
+	//#define CO_PRINTF_INACTIVE	--->	colorful output
 
 #### Leader Character ####
 
@@ -111,17 +119,38 @@ or
 
 **More examples in demo.c**
 
+## Macro ##
+
+**You can customize the below Macros in `coprintf.h` file:
+
+##### CO_PRINTF_INACTIVE #####
+
+Default: not set.
+
+`coprintf` will be disabled if `CO_PRINTF_INACTIVE` is set like this:
+
+	// disable colorful ouptput
+	#define CO_PRINTF_INACTIVE	
+
+##### CO_PRINTF_LEADER #####
+
+Default: '^'
+
+The `<leader>` char can be customized by `CO_PRINTF_LEADER`:
+
+	// set '#' as the <leader> char
+	#define CO_PRINTF_LEADER	'#'
+
 ## Advanced ##
 
 - Action flag `<leader>d` will **turn off all settings** ( fg, bg and action ), Thus, in **single** command, you have to set flags again to make it work well once there are other strings after `<leader>d`.
-- If you want to print the leader itself, try `<leader><leader>`; If the char after leader isn't defined as an escape char, it will be ignored.
+- If you want to print the <leader> itself, try `<leader><leader>`; If the char after leader isn't defined as an escape char, it will be ignored.
 - It's **not** necessary use `<leader>d` at the begin/end of commands, `coprintf` do it automatically.
 - Actions can overlaied.
 
 ## What's more ##
 
 This project is really same as [cecho](https://github.com/springlie/cecho), which supports similar functions to `echo` in shell script. Yes, `coprintf` is just the C version of `cecho`!
-
 */
 
 #ifndef CO_PRINTF_H
@@ -134,14 +163,11 @@ This project is really same as [cecho](https://github.com/springlie/cecho), whic
 /*** you can customize these macros before calling ***/
 /*** you have to change them here if you want to customize them ***/
 
+/* disable co_printf */
+/* #define CO_PRINTF_INACTIVE */
 
-/* color function flag
-   0	 - inactive
-   other - active */
-#define CO_PRINTF_ACTIVE	1
-
-/* leader character for mode 
-   replace it by any char if you want */
+/* leader character for mode */
+/* replace it by any char if you want */
 #define CO_PRINTF_LEADER	'^'
 
 

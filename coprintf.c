@@ -14,11 +14,12 @@
 
 int set_mode(char* dest, char* mode)
 {
-	if(0 == CO_PRINTF_ACTIVE)
-		return 0;
-
+#ifdef CO_PRINTF_INACTIVE
+	return 0;
+#else
 	strcat(dest, mode);
 	return strlen(mode);
+#endif
 }
 
 /* internal core */
