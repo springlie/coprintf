@@ -42,9 +42,9 @@ Support setting foreground, background and action
 
 Support switch the printf status:
 
-	#define CO_PRINTF_INACTIVE		--->	normal output
+	Macro CO_PRINTF_INACTIVE exists			--->	normal output
 
-	/*#define CO_PRINTF_INACTIVE*/	--->	colorful output
+	Macro CO_PRINTF_INACTIVE doesn't exists	--->	colorful output
 
 #### Leader Character ####
 
@@ -125,10 +125,14 @@ or
 
 Default: not set.
 
-`coprintf` will be disabled if `CO_PRINTF_INACTIVE` is set like this:
+`coprintf` will be disabled if `CO_PRINTF_INACTIVE` is set in `coprintf.h` like this:
 
 	/* disable colorful ouptput */
 	#define CO_PRINTF_INACTIVE	
+
+Or compiling with option like this:
+
+	-DCO_PRINTF_INACTIVE
 
 ##### CO_PRINTF_LEADER #####
 
