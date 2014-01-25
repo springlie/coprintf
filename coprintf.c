@@ -1,3 +1,7 @@
+#include <unistd.h>
+#include <stdarg.h>
+#include <string.h>
+
 #include "coprintf.h"
 
 /* max len of origin format string */
@@ -9,22 +13,28 @@
 /* max len of final format string */
 #define CO_PRINTF_MAX_MODE	10
 
+#ifdef CO_PRINTF_INACTIVE
+	static const int inactive = 1;
+#else
+	static const int inactive = 0;
+#endif
 
 /* set modes, do nothing if inactive */
-
-int set_mode(char* dest, char* mode)
+/*TODO: need fp here, and fflush*/
+static int set_mode(char* dest, char* mode)
 {
-#ifdef CO_PRINTF_INACTIVE
-	return 0;
-#else
-	strcat(dest, mode);
-	return strlen(mode);
-#endif
+	if(inactive || !isatty(STDERR_FILENO))
+		return 0;
+	else
+	{
+		strcat(dest, mode);
+		return strlen(mode);
+	}
 }
 
 /* internal core */
 
-int covprintf(FILE* fp, char* fmt, va_list parg)
+static int covprintf(FILE* fp, char* fmt, va_list parg)
 {
 	/* mode strings definition */
 
@@ -122,6 +132,7 @@ int covprintf(FILE* fp, char* fmt, va_list parg)
 
 	set_mode(new_fmt, done);
 
+	fflush(fp);
 	return vfprintf(fp, new_fmt, parg);
 }
 
