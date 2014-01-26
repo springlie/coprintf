@@ -17,10 +17,10 @@
 /*** interface ***/
 
 /* colorful stdout */
-int coprintf(char* fmt, ...);
+int coprintf(const char* fmt, ...);
 
 /* colorful stderr */
-int ceprintf(char* fmt, ...);
+int ceprintf(const char* fmt, ...);
 
 #endif
 

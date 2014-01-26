@@ -127,12 +127,11 @@ Default: not set.
 
 `coprintf` will be disabled if `CO_PRINTF_INACTIVE` is set in `coprintf.h` like this:
 
-	/* disable colorful ouptput */
-	#define CO_PRINTF_INACTIVE	
+`#define CO_PRINTF_INACTIVE`	
 
 Or compiling with option like this:
 
-	-DCO_PRINTF_INACTIVE
+`-DCO_PRINTF_INACTIVE`
 
 ##### CO_PRINTF_LEADER #####
 
@@ -145,6 +144,7 @@ The `<leader>` char can be customized by `CO_PRINTF_LEADER`:
 
 ## Advanced ##
 
+- `coprintf` is self-adapting. When the colorful output is redirected to other file, `coprintf` will disabled color automatically.
 - Action flag `<leader>d` will **turn off all settings** ( fg, bg and action ), Thus, in **single** command, you have to set flags again to make it work well once there are other strings after `<leader>d`.
 - If you want to print the <leader> itself, try `<leader><leader>`; If the char after leader isn't defined as an escape char, it will be ignored.
 - It's **not** necessary use `<leader>d` at the begin/end of commands, `coprintf` do it automatically.
