@@ -2,8 +2,6 @@
 
 Colorful printf for C Code ( ascii color only )
 
----
-
 ### Overview ###
 
 A **light** wrapper of `printf`, with color flags of **foreground**, **background** and **action** ( highlight, underline, blink ... ) . With it you can easily colorize your output and disable colorizing in c&cpp.
@@ -36,7 +34,7 @@ or
 
 	coprintf("^r^Y^h^u%shello^d ^c^R^eworld^d ^g^K^l!");
 
-There are more examples in demo.c
+There are more examples in [demo.c](https://github.com/springlie/coprintf/blob/master/demo.c).
 
 ### Install ###
 
@@ -76,7 +74,7 @@ Simply include the header in your files, like this:
 
 **What's `<Leader>` Character ?**
 
-We define a character as the `<leader>` who will combine the mode character as an escape character.
+We define a character as the `<leader>` which will combine the mode character as an escape character.
 
 The default `<leader>` is **"^"**, but you can customize it to any char you want.
 
@@ -130,7 +128,7 @@ The mode control formats are easily memorized:
 
 #### Macro ####
 
-**You can customize the below Macros in `coprintf.h` file**:
+**You can customize the below Macros in `coprintf.h`**:
 
 ##### CO_PRINTF_INACTIVE #####
 
