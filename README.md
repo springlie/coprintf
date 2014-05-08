@@ -4,9 +4,11 @@ Colorful printf for C Code ( ascii color only )
 
 ----------
 
-## Overview ##
+### Overview ###
 
-A **light** wrapper of `printf`, with color flags of **foreground**, **background** and **action** ( highlight, underline, blink ... ) . With it, you can easily colorize your output of C / CPP program.
+A **light** wrapper of `printf`, with color flags of **foreground**, **background** and **action** ( highlight, underline, blink ... ) . With it you can easily colorize your output and disable colorizing in c&cpp.
+
+#### Screenshot ####
 
 ##### Active #####
 
@@ -16,43 +18,7 @@ A **light** wrapper of `printf`, with color flags of **foreground**, **backgroun
 
 ![screenshot](https://raw.github.com/springlie/coprintf/master/screenshot2.png)
 
-## Install ##
-
-Simply include the header in your files, like this:
-
-`#include "coprintf.h"`
-
-## Usage ##
-
-#### Syntax ####
-
-1. Support multi-string in one command:
-
-	coprintf("<leader>rHello <leader>bWorld");
-
-	ceprintf("<leader>rHello <leader>bWorld");
-
-2. Support setting foreground, background and action
-
-	coprintf("<leader>r<leader>YHello <leader>b<leader>CWorld");
-
-	ceprintf("<leader>r<leader>YHello <leader>b<leader>CWorld");
-
-3. Support status switch via macro:
-
-	if Macro CO_PRINTF_INACTIVE exists			--->	normal output
-
-	if Macro CO_PRINTF_INACTIVE doesn't exists	--->	colorful output
-
-4. It will be automatically inactive when the output is not directed to terminal.
-
-**What's "<Leader>" Character ?**
-
-We define a character as the <leader> who will combine the mode character as an escape character.
-
-The default <leader> is **"^"**, but you can customize it to any char you want.
-
-#### Example (use '^' as leader char ) ####
+#### Example ####
 
 ##### set fg to red: #####
 	
@@ -72,20 +38,63 @@ or
 
 **There are more examples in demo.c**
 
+### Install ###
+
+Simply include the header in your files, like this:
+
+`#include "coprintf.h"`
+
+### Usage ###
+
+#### Syntax ####
+
+##### Support multi-string in one command: #####
+
+	coprintf("<leader>rHello <leader>bWorld");
+
+	ceprintf("<leader>rHello <leader>bWorld");
+
+##### Support setting foreground, background and action #####
+
+	coprintf("<leader>r<leader>YHello <leader>b<leader>CWorld");
+
+	ceprintf("<leader>r<leader>YHello <leader>b<leader>CWorld");
+
+##### Support status switch via macro: #####
+
+| macro CO_PRINTF_INACTIVE defined ? | colorize     |
+| ---------------------------------- | ------------ |
+| yes                                | not colorful |
+| no                                 | colorful     |
+
+##### Support status automatical switch via output fd: #####
+
+| output fd	| colorize     |
+| --------- | ------------ |
+| not tty	| not colorful |
+| tty       | colorful     |
+
+**What's `<Leader>` Character ?**
+
+We define a character as the `<leader>` who will combine the mode character as an escape character.
+
+The default `<leader>` is **"^"**, but you can customize it to any char you want.
+
+
 #### Mode flag ####
 
 ##### Foreground color flag #####
 
-| mode		| color  |
-| --------- | ------ |
-| <leader>k | black  |
-| <leader>r | red    |
-| <leader>g | green  |
-| <leader>y | yellow |
-| <leader>b | blue   |
-| <leader>p | purple |
-| <leader>c | cyan   |
-| <leader>w | write  |
+| mode		  | color  |
+| ----------- | ------ |
+| `<leader>`k | black  |
+| `<leader>`r | red    |
+| `<leader>`g | green  |
+| `<leader>`y | yellow |
+| `<leader>`b | blue   |
+| `<leader>`p | purple |
+| `<leader>`c | cyan   |
+| `<leader>`w | write  |
 
 ##### Background color flag #####
 
@@ -118,7 +127,6 @@ The mode control formats are easily memorized:
 	Background : **almost** the uppercase of color mode head, "black" is exceptive.
 
 	Controling : **almost** the lowercase of mode head, with some exceptions.
-
 
 #### Macro ####
 
