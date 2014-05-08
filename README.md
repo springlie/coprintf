@@ -2,7 +2,7 @@
 
 Colorful printf for C Code ( ascii color only )
 
-----------
+---
 
 ### Overview ###
 
@@ -36,7 +36,7 @@ or
 
 	coprintf("^r^Y^h^u%shello^d ^c^R^eworld^d ^g^K^l!");
 
-**There are more examples in demo.c**
+There are more examples in demo.c
 
 ### Install ###
 
@@ -98,35 +98,35 @@ The default `<leader>` is **"^"**, but you can customize it to any char you want
 
 ##### Background color flag #####
 
-| mode      | color  |
-| --------- | ------ |
-| <leader>K | black  |
-| <leader>R | red    |
-| <leader>G | green  |
-| <leader>Y | yellow |
-| <leader>B | blue   |
-| <leader>P | purple |
-| <leader>C | cyan   |
-| <leader>W | write  |
+| mode        | color  |
+| ----------- | ------ |
+| `<leader>`K | black  |
+| `<leader>`R | red    |
+| `<leader>`G | green  |
+| `<leader>`Y | yellow |
+| `<leader>`B | blue   |
+| `<leader>`P | purple |
+| `<leader>`C | cyan   |
+| `<leader>`W | write  |
 
 ##### Action flag #####
 
-| mode		| action    |
-| --------- | --------- |
-| <leader>d | done      |
-| <leader>h | highlight |
-| <leader>u | underline |
-| <leader>e | reverse   |
-| <leader>l | blink     |
-| <leader>v | invisible |
+| mode		  | action    |
+| ----------- | --------- |
+| `<leader>`d | done      |
+| `<leader>`h | highlight |
+| `<leader>`u | underline |
+| `<leader>`e | reverse   |
+| `<leader>`l | blink     |
+| `<leader>`v | invisible |
 
 The mode control formats are easily memorized:
 
-	Foreground : **almost** the lowercase of color mode head, "black" is exceptive.
+1. Foreground : **almost** the lowercase of color mode head, "black" is exceptive.
 	
-	Background : **almost** the uppercase of color mode head, "black" is exceptive.
+2. Background : **almost** the uppercase of color mode head, "black" is exceptive.
 
-	Controling : **almost** the lowercase of mode head, with some exceptions.
+3. Controling : **almost** the lowercase of mode head, with some exceptions.
 
 #### Macro ####
 
@@ -138,11 +138,11 @@ Default: not set.
 
 `coprintf` will be disabled if `CO_PRINTF_INACTIVE` is set in `coprintf.h` like this:
 
-`#define CO_PRINTF_INACTIVE`	
+	#define CO_PRINTF_INACTIVE
 
 Or compiling with option like this:
 
-`-DCO_PRINTF_INACTIVE`
+	-DCO_PRINTF_INACTIVE
 
 ##### CO_PRINTF_LEADER #####
 
