@@ -6,9 +6,7 @@ Colorful printf for C Code ( ascii color only )
 
 ## Overview ##
 
-A **light** wrapper of `printf`, with color flags of **foreground**, **background** and **action** ( highlight, underline, blink ... ) . With it, you can easily colorize your output of C / CPP.
-
-## Screenshot ##
+A **light** wrapper of `printf`, with color flags of **foreground**, **background** and **action** ( highlight, underline, blink ... ) . With it, you can easily colorize your output of C / CPP program.
 
 ##### Active #####
 
@@ -20,84 +18,41 @@ A **light** wrapper of `printf`, with color flags of **foreground**, **backgroun
 
 ## Install ##
 
-Before using `coprintf`, simply include the header in your files like this:
+Simply include the header in your files, like this:
 
 `#include "coprintf.h"`
 
 ## Usage ##
 
-Support multi-string in one command:
+#### Syntax ####
 
-	coprintf("<leader>rHello <leader>bWorld");
-
-Support stdout and stderr:
+1. Support multi-string in one command:
 
 	coprintf("<leader>rHello <leader>bWorld");
 
 	ceprintf("<leader>rHello <leader>bWorld");
 
-Support setting foreground, background and action
+2. Support setting foreground, background and action
 
 	coprintf("<leader>r<leader>YHello <leader>b<leader>CWorld");
 
-Support switch the printf status:
+	ceprintf("<leader>r<leader>YHello <leader>b<leader>CWorld");
 
-	Macro CO_PRINTF_INACTIVE exists			--->	normal output
+3. Support status switch via macro:
 
-	Macro CO_PRINTF_INACTIVE doesn't exists	--->	colorful output
+	if Macro CO_PRINTF_INACTIVE exists			--->	normal output
 
-#### Leader Character ####
+	if Macro CO_PRINTF_INACTIVE doesn't exists	--->	colorful output
 
-We define a character as the <leader> character, who will combine the mode character as escape character.
+4. It will be automatically inactive when the output is not directed to terminal.
 
-The default option is **"^"**, you can customize it to any char you want, before calling coprintf.
+**What's "<Leader>" Character ?**
 
-The mode control formats are easily memorized:
+We define a character as the <leader> who will combine the mode character as an escape character.
 
-	Foreground : **almost** the lowercase of color mode head, "black" is exceptive.
-	
-	Background : **almost** the uppercase of color mode head, "black" is exceptive.
+The default <leader> is **"^"**, but you can customize it to any char you want.
 
-	Controling : **almost** the lowercase of mode head, with some exceptions.
-
-#### Foreground color flag ##
-
-| mode		| color  |
-| --------- | ------ |
-| <leader>k | black  |
-| <leader>r | red    |
-| <leader>g | green  |
-| <leader>y | yellow |
-| <leader>b | blue   |
-| <leader>p | purple |
-| <leader>c | cyan   |
-| <leader>w | write  |
-
-#### Background color flag ####
-
-| mode      | color  |
-| --------- | ------ |
-| <leader>K | black  |
-| <leader>R | red    |
-| <leader>G | green  |
-| <leader>Y | yellow |
-| <leader>B | blue   |
-| <leader>P | purple |
-| <leader>C | cyan   |
-| <leader>W | write  |
-
-#### Action flag ####
-
-| mode		| action    |
-| --------- | --------- |
-| <leader>d | done      |
-| <leader>h | highlight |
-| <leader>u | underline |
-| <leader>e | reverse   |
-| <leader>l | blink     |
-| <leader>v | invisible |
-
-## Example (use default leader '^' ) ##
+#### Example (use '^' as leader char ) ####
 
 ##### set fg to red: #####
 	
@@ -115,11 +70,59 @@ or
 
 	coprintf("^r^Y^h^u%shello^d ^c^R^eworld^d ^g^K^l!");
 
-**More examples in demo.c**
+**There are more examples in demo.c**
 
-## Macro ##
+#### Mode flag ####
 
-**You can customize the below Macros in `coprintf.h` file:
+##### Foreground color flag #####
+
+| mode		| color  |
+| --------- | ------ |
+| <leader>k | black  |
+| <leader>r | red    |
+| <leader>g | green  |
+| <leader>y | yellow |
+| <leader>b | blue   |
+| <leader>p | purple |
+| <leader>c | cyan   |
+| <leader>w | write  |
+
+##### Background color flag #####
+
+| mode      | color  |
+| --------- | ------ |
+| <leader>K | black  |
+| <leader>R | red    |
+| <leader>G | green  |
+| <leader>Y | yellow |
+| <leader>B | blue   |
+| <leader>P | purple |
+| <leader>C | cyan   |
+| <leader>W | write  |
+
+##### Action flag #####
+
+| mode		| action    |
+| --------- | --------- |
+| <leader>d | done      |
+| <leader>h | highlight |
+| <leader>u | underline |
+| <leader>e | reverse   |
+| <leader>l | blink     |
+| <leader>v | invisible |
+
+The mode control formats are easily memorized:
+
+	Foreground : **almost** the lowercase of color mode head, "black" is exceptive.
+	
+	Background : **almost** the uppercase of color mode head, "black" is exceptive.
+
+	Controling : **almost** the lowercase of mode head, with some exceptions.
+
+
+#### Macro ####
+
+**You can customize the below Macros in `coprintf.h` file**:
 
 ##### CO_PRINTF_INACTIVE #####
 
