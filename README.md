@@ -34,7 +34,7 @@ or
 
 	coprintf("^r^Y^h^u%shello^d ^c^R^eworld^d ^g^K^l!");
 
-Please refer to [*demo.c*](https://github.com/springlie/coprintf/blob/master/demo.c) for more examples:
+Please refer to [**demo.c**](https://github.com/springlie/coprintf/blob/master/demo.c) for more examples:
 
 ### Install ###
 
@@ -128,7 +128,7 @@ The mode control formats are easily memorized:
 
 #### Macro ####
 
-You can customize the below Macros in [*coprintf.h*](https://github.com/springlie/coprintf/blob/master/coprintf.h):
+You can customize the below Macros in [**coprintf.h**](https://github.com/springlie/coprintf/blob/master/coprintf.h):
 
 ##### CO_PRINTF_INACTIVE #####
 
@@ -154,11 +154,11 @@ The `<leader>` char can be customized by `CO_PRINTF_LEADER`:
 ## Advanced ##
 
 - `coprintf` is self-adapting. When the colorful output is redirected to other file, `coprintf` will disabled color automatically.
-- Action flag `<leader>d` will **turn off all settings** ( fg, bg and action ), Thus, in **single** command, you have to set flags again to make it work well once there are other strings after `<leader>d`.
+- Action flag `<leader>d` will turn off all settings ( fg, bg and action ), Thus, in **single** command, you have to set flags again to make it work well once there are other strings after `<leader>d`.
 - If you want to print the <leader> itself, try `<leader><leader>`; If the char after leader isn't defined as an escape char, it will be ignored.
 - It's **not** necessary use `<leader>d` at the begin/end of commands, `coprintf` do it automatically.
 - Actions can overlaied.
 
 ## What's more ##
 
-This project is really same as [cecho](https://github.com/springlie/cecho), which supports similar functions to `echo` in shell script.
+This project is really same as [**cecho**](https://github.com/springlie/cecho), which supports similar functions to `echo` in shell script.
