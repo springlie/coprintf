@@ -1,10 +1,10 @@
 # coprintf #
 
-Colorful printf for C Code ( ascii color only )
+Colorful printf for C Code ( ascii color only ), decorate your terminal with more colors.
 
 ### Overview ###
 
-A **light** wrapper of `printf`, with color flags of **foreground**, **background** and **action** ( highlight, underline, blink ... ) . With it you can easily colorize your output and disable colorizing in c&cpp.
+A light, self-adapting wrapper of `printf` with several useful features, makes easy work for changing **foreground**, **background** and **text action** ( highlight, underline, blink ... ) . It makes you easy to enable and disable colorizing in your c&cpp's output.
 
 #### Screenshot ####
 
@@ -18,7 +18,7 @@ A **light** wrapper of `printf`, with color flags of **foreground**, **backgroun
 
 #### Example ####
 
-##### set fg to red: #####
+##### set *fg* to red: #####
 	
 	coprintf("^r%s","hello world !");
 
@@ -26,15 +26,15 @@ or
 
 	coprintf("^rhello world !");
 
-##### set fg to red, bg to yellow, action to highlight and underline: #####
+##### set *fg* to red, *bg* to yellow, *action* to highlight and underline: #####
 
 	coprintf("^r^Y^h^u%s","hello world !");
 
-##### set [ red, yellow, highlight & underline ] for "hello", [ cyan, red, reverse ] for "world", [ green, black, blink ] for "!" : #####
+##### set [ *red*, *yellow*, *highlight* & *underline* ] for "hello", [ *cyan*, *red*, *reverse* ] for "world", [ *green*, *black*, *blink* ] for "!" : #####
 
 	coprintf("^r^Y^h^u%shello^d ^c^R^eworld^d ^g^K^l!");
 
-There are more examples in [demo.c](https://github.com/springlie/coprintf/blob/master/demo.c).
+Please refer to [*demo.c*](https://github.com/springlie/coprintf/blob/master/demo.c) for more examples:
 
 ### Install ###
 
@@ -128,7 +128,7 @@ The mode control formats are easily memorized:
 
 #### Macro ####
 
-**You can customize the below Macros in `coprintf.h`**:
+You can customize the below Macros in [*coprintf.h*](https://github.com/springlie/coprintf/blob/master/coprintf.h):
 
 ##### CO_PRINTF_INACTIVE #####
 
@@ -161,4 +161,4 @@ The `<leader>` char can be customized by `CO_PRINTF_LEADER`:
 
 ## What's more ##
 
-This project is really same as [cecho](https://github.com/springlie/cecho), which supports similar functions to `echo` in shell script. Yes, `coprintf` is just the C version of `cecho`!
+This project is really same as [cecho](https://github.com/springlie/cecho), which supports similar functions to `echo` in shell script.
